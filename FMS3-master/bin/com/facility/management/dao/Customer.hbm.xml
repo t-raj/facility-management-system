@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.facility.management.model.customer">
+	<class name="CustomerImpl" table="customer">
+		<id name="customerId" column="customerid"/>
+		<property name="lastName" type="string" column="lname"/>
+		<property name="firstName" type="string" column="fname"/>
+		<one-to-one name="billingAddress" class="com.facility.management.model.customer.AddressImpl" cascade="save-update, delete"></one-to-one>	
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.facility.management.model.customer">
+	<class name="AddressImpl" table="address">
+		<id name="customerId" column="customerid"/>
+		<property name="addressId" type="string" column="addressid"/>
+		<property name="street" type="string" column="street"/>
+		<property name="unit" type="string" column="unit"/>	
+		<property name="city" type="string" column="city"/>
+		<property name="state" type="string" column="state"/>
+		<property name="zip" type="string" column="zip"/>
+	</class>
+</hibernate-mapping>
+

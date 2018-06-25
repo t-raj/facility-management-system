@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+ 	<session-factory>		
+ 	 	<!-- Database connection settings -->	
+ 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+ 		<property name="hibernate.connection.url"> jdbc:mysql://127.0.0.1:3306/fms</property>
+ 		<property name="connection.username">root</property>
+ 		<property name="connection.password">fpl350clark</property>
+ 		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+ 
+ 		<!-- SQL dialect - generate SQL for a particular database -->
+ 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+ 
+ 		<!-- Echo all executed SQL statements -->
+ 		<property name="show_sql">true</property>
+ 
+ 		<!-- Enable Hibernate's automatic session context management -->
+ 		<property name="current_session_context_class">thread</property>
+		<!-- Mapping resource configuration files -->
+ 		<mapping resource="com/facility/management/dao/Customer.hbm.xml"/> 
+ 		<mapping resource="com/facility/management/dao/Address.hbm.xml"/> 		
+ 		<mapping resource="com/facility/management/dao/Facility.hbm.xml"/>  
+ 		<mapping resource="com/facility/management/dao/FacilityUse.hbm.xml"/>  
+ 		<mapping resource="com/facility/management/dao/Inspections.hbm.xml"/> 
+ 		<mapping resource="com/facility/management/dao/MaintRequest.hbm.xml"/>  
+ 	</session-factory>
+ </hibernate-configuration>

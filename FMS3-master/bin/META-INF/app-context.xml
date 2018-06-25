@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<description>Wiring the dependencies for the Online book Store Application.</description>
+
+	<context:component-scan base-package="com.facility.management" />
+	
+	<bean id="billingAddress" class="com.facility.management.model.customer.AddressImpl" scope="prototype"/>
+	<bean id="shippingAddress" class="com.facility.management.model.customer.AddressImpl" scope="prototype"/>
+	<bean id="book" class="com.facility.management.model.product.Book" scope="prototype"/>
+
+	<bean id="orderDetail" class="com.facility.management.model.order.OrderDetailImpl" scope="prototype">
+		<property name="book" ref="book" />
+	</bean>
+
+	<bean id="order" class="com.facility.management.model.order.OrderImpl" scope="prototype">	
+		<property name="orderDetails">
+         	<list/>
+        	<!-- uncomment these lines if you want to create a list with NULL object of type OrderDetail
+         	<list>
+             	<ref bean="orderDetail" />
+            </list>
+            -->
+         </property>
+	</bean>
+	
+	<bean id="customer" class="com.facility.management.model.customer.CustomerImpl" scope="prototype">
+		<property name="billingAddress" ref="billingAddress" />
+		<property name="shippingAddress" ref="shippingAddress" />
+		<!-- Inject the Order List -->
+        <property name="orders">
+        	<list/>
+        	<!-- uncomment these lines if you want to create a list with NULL object of type Order
+        	<list>
+            	<ref bean="order" />
+            </list>
+             -->
+         </property>
+	</bean>
+	
+	<bean id="facility" class="com.facility.management.model.facility.FacilityImpl" scope="prototype">
+	</bean>
+	<bean id="facilityUse" class="com.facility.management.model.facility_use.FacilityUseImpl" scope="prototype">
+	</bean>
+	<bean id="inspectionUse" class="com.facility.management.model.inspections.InspectionsImpl" scope="prototype">
+	</bean>
+	<bean id="maintRequest" class="com.facility.management.model.maintenance.MaintRequestImpl" scope="prototype">
+	</bean>
+	
+	<bean id="customerService" class="com.facility.management.model.service.CustomerService" scope="prototype"></bean>
+	<bean id="facilityService" class="com.facility.management.model.service.FacilityService" scope="prototype"></bean>
+	<bean id="facilityUseService" class="com.facility.management.model.service.FacilityUseService" scope="prototype"></bean>
+	<bean id="inspectionService" class="com.facility.management.model.service.InspectionService" scope="prototype"></bean>
+	<bean id="maintService" class="com.facility.management.model.service.MaintRequestService" scope="prototype"></bean>
+	
+</beans>

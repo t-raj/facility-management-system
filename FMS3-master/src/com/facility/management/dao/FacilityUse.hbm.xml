@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.facility.management.model.facility_use">
+	<class name="FacilityUseImpl" table="facility_use">
+		<id name="useId" type="string" column="useId"/>
+		<property name="facilityId" type="int" column="facilityId"/>
+		<property name="tenant" type="string" column="tenant"/>
+		<property name="owner" type="string" column="owner"/>
+		<property name="status" type="string" column="status" />
+		<property name="startDate" type="Calendar" column="startDate" />
+		<property name="endDate" type="Calendar" column="endDate" />
+	</class>
+	
+</hibernate-mapping>
+

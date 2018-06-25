@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.facility.management.model.maintenance">
+	<class name="MaintRequestImpl" table="maintenance_request">
+		<id name="maintId" column="maintenanceId"/>
+		<property name="facilityId" type="int" column="facilityId"/>
+		<!--<property name="maintDescription" type="string" column="maint_descript"/>-->
+	</class>
+</hibernate-mapping>

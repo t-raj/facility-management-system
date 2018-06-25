@@ -1,0 +1,71 @@
+create database fms;
+
+create table facility (
+
+	facilityId	int	not null,
+	owner		varchar(255),
+	address1	varchar(255),
+	address2	varchar(255),
+	city	varchar(255),
+	state	varchar(2),
+	zip	varchar(255),
+	rate	double,
+	capacity	int,
+	details	varchar(255)
+       
+) ;
+
+create table facility_use(
+
+	useId 	int	not null,
+	facilityId	int,
+	tenant	varchar(255),
+	startDate	date,
+	endDate	date,
+	status	varchar(255)
+
+) ;
+
+
+create table inspections(
+	facilityId	int,
+	inspectId	int	not null,
+	description	varchar(255),
+	assignedTo	varchar(255),
+	status	varchar(255),
+	dateAssigned	date,
+	dateClosed		date
+
+) ;
+
+create table maintenance_request(
+	maintenanceId	int(11) 	not null,
+	facilityId	int,
+	maint_descript	varchar(255),
+	status	varchar(255),
+	cost		double
+);
+
+create table maintenance_schedule (
+	maintenance_id	int(11) 	not null,
+	facilityId	int(11),
+	start_date	date,
+	end_date	date,
+	maint_description	varchar(255)
+);
+
+CREATE TABLE `address` (
+  `facilityID` int(11) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `zip` varchar(255) DEFAULT NULL,
+  `addressId` varchar(255) DEFAULT NULL,
+  `startDate` date DEFAULT NULL,
+  `endDate` date DEFAULT NULL,
+  `isVacant` tinyint(1) DEFAULT NULL,
+  `capacity` int(11) DEFAULT NULL
+  );
+
+
+/* set up for tables -- 3/22/16 */
